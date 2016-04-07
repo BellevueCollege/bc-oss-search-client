@@ -1,0 +1,5 @@
+{
+    "require": {
+        "opensearchserver/opensearchserver": "3.0.*"
+    }
+}
