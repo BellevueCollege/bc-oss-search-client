@@ -12,20 +12,20 @@ Text Domain: bcossclient
 
 defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 
-// Include OSS Library
-require_once plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
-
-// Require all files in classes/
-foreach ( glob( plugin_dir_path( __FILE__ ) . "classes/*.php" ) as $file ) {
-	require_once $file;
-}
-
 // Shortcode
 function bcossclient_shortcode() {
 	/* $attr = shortcode_atts( array(
 		'foo' => 'something',
 		'bar' => 'something else',
 	), $atts );*/
+
+	// Include OSS Library
+	require_once plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
+
+	// Require all files in classes/
+	foreach ( glob( plugin_dir_path( __FILE__ ) . "classes/*.php" ) as $file ) {
+		require_once $file;
+	}
 
 	// Load Configs
 	$configs = new BcOssClientConfig();
