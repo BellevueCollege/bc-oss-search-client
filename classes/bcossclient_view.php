@@ -214,15 +214,18 @@ class BcOssClientView {
 		// If there are results to display
 		if ( $results && ( $results->getTotalNumberFound() > 0 ) ) {
 
-			// Get spelling suggestion
-			$spelling = $this->model->best_spelling();
-
 			$output .= '<h2>' . __( 'Search results:', 'bcossclient' ) . '</h2>';
 			$output .= '<p>' . __( 'Found ', 'bcossclient' ) . $results->getTotalNumberFound() . __( ' results for ', 'bcossclient' ) .
 				        '"'. htmlentities( stripslashes( $this->model->query ) ).'" (' . $results->getTime()/1000 . __( ' seconds) ', 'bcossclient' );
-			// Check if suggestion is the same as the query itself
-			if ( strcasecmp ( $spelling, $this->model->query ) !== 0 ) {
-				$output .= '<p class="alert alert-warning"><strong>Suggestion:</strong> Did you mean <strong><a href=' . $this->searchterm_url( $spelling ) . '>' . $spelling . '</a></strong>?</p>';
+
+			if ( $this->model->sc_config[ 'spelling' ] ) {
+				// Get spelling suggestion
+				$spelling = $this->model->best_spelling();
+
+				// Check if suggestion is the same as the query itself
+				if ( strcasecmp ( $spelling, $this->model->query ) !== 0  &&  !empty( $spelling ) )  {
+					$output .= '<p class="alert alert-warning"><strong>Suggestion:</strong> Did you mean <strong><a href=' . $this->searchterm_url( $spelling ) . '>' . $spelling . '</a></strong>?</p>';
+				}
 			}
 
 			// Output results
@@ -234,15 +237,17 @@ class BcOssClientView {
 		// If no results to display, but query present
 		} elseif ( $this->model->query ) {
 
-			// Get spelling suggestion
-			$spelling = $this->model->best_spelling();
-
 			// Output error
 			$output .= '<p>No Results to Display. Please revise your search terms!</p>';
 
-			// Check if suggestion is the same as the query itself
-			if ( strcasecmp ( $spelling, $this->model->query ) !== 0 ) {
-				$output .= '<p>Try searching for <a href=' . $this->searchterm_url( $spelling ) . '>' . $spelling . '</a> instead!</p>';
+			if ( $this->model->sc_config[ 'spelling' ] ) {
+				// Get spelling suggestion
+				$spelling = $this->model->best_spelling();
+
+				// Check if suggestion is the same as the query itself
+				if ( strcasecmp ( $spelling, $this->model->query ) !== 0 &&  !empty( $spelling ) ) {
+					$output .= '<p>Try searching for <a href=' . $this->searchterm_url( $spelling ) . '>' . $spelling . '</a> instead!</p>';
+				}
 			}
 		// No query provided
 		} else {

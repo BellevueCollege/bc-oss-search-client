@@ -13,11 +13,10 @@ Text Domain: bcossclient
 defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 
 // Shortcode
-function bcossclient_shortcode() {
-	/* $attr = shortcode_atts( array(
-		'foo' => 'something',
-		'bar' => 'something else',
-	), $atts );*/
+function bcossclient_shortcode( $sc_config ) {
+	$sc_config = shortcode_atts( array(
+		'spelling' => 'false',
+	), $sc_config, 'bcossclient_shortcode' );
 
 	// Include OSS Library
 	require_once plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
@@ -34,7 +33,7 @@ function bcossclient_shortcode() {
 	}
 
 	// Load model
-	$model = new BcOssClientModel( $configs );
+	$model = new BcOssClientModel( $configs, $sc_config );
 
 	// Load controller
 	$controller = new BcOssClientController( $model );

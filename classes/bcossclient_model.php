@@ -2,6 +2,7 @@
 class BcOssClientModel {
 	// Configuration
 	protected $configs;
+	public $sc_configs;
 	protected $template;
 
 	// API Object
@@ -20,8 +21,9 @@ class BcOssClientModel {
 	public $resultsOffset;
 
 
-	public function __construct( $configs ){
+	public function __construct( $configs, $sc_config ){
 		$this->configs = $configs->configs;
+		$this->sc_config = $sc_config;
 
 		// Set up access to API
 		$this->oss_api = $this->set_up_api_connection(
