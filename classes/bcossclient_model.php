@@ -161,7 +161,7 @@ class BcOssClientModel {
 			$this->query,
 			$this->config( 'spelling_template' )
 		);
-		$this->bestSpelling = $result->getBestSpellSuggestion('full');
+		$this->bestSpelling = $result->getBestSpellSuggestion('fullExact');
 		return $this->bestSpelling;
 	}
 
