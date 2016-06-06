@@ -1,0 +1,100 @@
+[
+    {
+        "name": "kriswallsmith/buzz",
+        "version": "v0.15",
+        "version_normalized": "0.15.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/kriswallsmith/Buzz.git",
+            "reference": "d4041666c3ffb379af02a92dabe81c904b35fab8"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/kriswallsmith/Buzz/zipball/d4041666c3ffb379af02a92dabe81c904b35fab8",
+            "reference": "d4041666c3ffb379af02a92dabe81c904b35fab8",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "3.7.*"
+        },
+        "suggest": {
+            "ext-curl": "*"
+        },
+        "time": "2015-06-25 17:26:56",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Buzz": "lib/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Kris Wallsmith",
+                "email": "kris.wallsmith@gmail.com",
+                "homepage": "http://kriswallsmith.net/"
+            }
+        ],
+        "description": "Lightweight HTTP client",
+        "homepage": "https://github.com/kriswallsmith/Buzz",
+        "keywords": [
+            "curl",
+            "http client"
+        ]
+    },
+    {
+        "name": "opensearchserver/opensearchserver",
+        "version": "3.0.18",
+        "version_normalized": "3.0.18.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/jaeksoft/opensearchserver-php-client.git",
+            "reference": "9bd45b397201cf68ee6b52cb0ee33470e05a6d10"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/jaeksoft/opensearchserver-php-client/zipball/9bd45b397201cf68ee6b52cb0ee33470e05a6d10",
+            "reference": "9bd45b397201cf68ee6b52cb0ee33470e05a6d10",
+            "shasum": ""
+        },
+        "require": {
+            "kriswallsmith/buzz": ">=0.6",
+            "php": ">=5.3.3"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "4.1.*"
+        },
+        "time": "2015-04-21 14:55:08",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "OpenSearchServer": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "GPL-3.0"
+        ],
+        "description": "PHP library for OpenSearchServer: professionnal search engine, crawlers (web, file, database), REST APIs, .... This library uses OpenSearchServer's V2 API.",
+        "homepage": "http://www.opensearchserver.com/",
+        "keywords": [
+            "crawler",
+            "file crawler",
+            "index",
+            "open source search engine",
+            "opensearchserver",
+            "oss",
+            "search",
+            "search engine",
+            "web crawler"
+        ]
+    }
+]
