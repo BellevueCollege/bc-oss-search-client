@@ -67,11 +67,11 @@ class BcOssClientView {
 			$output .= '<article class="row-padding">';
 			if ( $result->getSnippet( 'title' ) != '' ) {
 				$output .= '<h3><a href="' . $result->getField('url') . '">'.$result->getSnippet('title').'</a></h3>';
-				$output .= '<span class="result-url text-success">' . $result->getField('url').'</span></p>';
+				$output .= '<p><span class="result-url text-success">' . $result->getField('url').'</span></p>';
 			} else {
 				$output .= '<h3><a href="' . $result->getField('url') . '">' . $result->getField('url') . '</a></h3>';
 			}
-			$output .= '<p>'.$result->getSnippet('content').'<br />';
+			$output .= '<p>'.$result->getSnippet('content').'</p>';
 			$output .= '</article>';
 		}
 		return $output;
@@ -217,8 +217,9 @@ class BcOssClientView {
 			$output .= '<h2>' . __( 'Search results:', 'bcossclient' ) . '</h2>';
 			$output .= '<p>' . __( 'Found ', 'bcossclient' ) . $results->getTotalNumberFound() . __( ' results for ', 'bcossclient' ) .
 				        '"'. htmlentities( stripslashes( $this->model->query ) ).'" (' . $results->getTime()/1000 . __( ' seconds) ', 'bcossclient' );
-
-			if ( $this->model->sc_config[ 'spelling' ] ) {
+			
+			/* Check if spelling suggestion should be made. Resource intensive. */
+			if ( $this->model->sc_config[ 'spelling' ] && $results->getTotalNumberFound() <= $this->model->config( 'results_per_page' ) ) {
 				// Get spelling suggestion
 				$spelling = $this->model->best_spelling();
 
