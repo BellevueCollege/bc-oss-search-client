@@ -11,4 +11,6 @@ return array(
 	'query_peram'       => 'URL PERAM FOR SEARCH',
 	'page_peram'        => 'URL PERAM FOR PAGE TO DISPLAY',
 	'filter_peram'      => 'URL PERAM FOR SEARCH FILTER',
+	'promoted_cpt'      => 'CUSTOM POST TYPE ID',
+	'promoted_url'      => 'CUSTOM URL FIELD ID',
 );

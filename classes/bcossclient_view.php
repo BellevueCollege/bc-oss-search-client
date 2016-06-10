@@ -76,6 +76,26 @@ class BcOssClientView {
 		}
 		return $output;
 	}
+	
+	/**
+	 * Promoted Results module
+	 *
+	 * Output promoted results data in HTML format
+	 */
+	protected function promoted_results( $promoted_results ) {
+		$output = '';
+
+		foreach( $promoted_results as $promoted_result ) {
+			$output .= '<article class="row-padding well well-sm">';
+			$output .= '<h3><a href="' . $promoted_result['url'] . '">' . $promoted_result['title'] . "</a></h3>";
+			$output .= '<p><span class="result-url text-success">' . $promoted_result['url'] . '</span></p>';
+			$output .= '<p>'. $promoted_result['content'] . '</p>';
+			$output .= '</article>';
+		}
+
+		return $output;
+	}
+	
 
 	/**
 	 * Pagination module
@@ -228,6 +248,24 @@ class BcOssClientView {
 					$output .= '<p class="alert alert-warning"><strong>Suggestion:</strong> Did you mean <strong><a href=' . $this->searchterm_url( $spelling ) . '>' . $spelling . '</a></strong>?</p>';
 				}
 			}
+			
+			// Load Promoted Search Results
+			if ( !$this->model->filters ) {
+				
+				/* Convert query to tag format.
+				 *
+				 * Must be exact match to return (case insensitive)
+				 */
+				$tag = sanitize_title_with_dashes( $this->model->query );
+				
+				// Fetch results
+				$promoted_results = $this->model->promoted_results( $tag );
+				
+				// Output results
+				$output .= $this->promoted_results( $promoted_results );
+				
+			}
+
 
 			// Output results
 			$output .= $this->results( $results );

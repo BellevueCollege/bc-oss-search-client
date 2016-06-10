@@ -164,5 +164,40 @@ class BcOssClientModel {
 		$this->bestSpelling = $result->getBestSpellSuggestion('fullExact');
 		return $this->bestSpelling;
 	}
-
+	
+	/**
+	 * Promoted Results
+	 *
+	 * Get promoted from custom post type and return as an array
+	 */
+	public function promoted_results( $tag ) {
+		/* Load Configs */
+		$custom_post_type = $this->config( 'promoted_cpt' );
+		$url_field = $this->config( 'promoted_url' );
+		
+		/* Return */
+		$output = array();
+		
+		
+		/* Set up Query */
+		$promoted_query = new WP_Query(
+			array( "post_type" => $custom_post_type,
+				   "tag" => $tag
+			)
+		);
+		
+		while ( $promoted_query->have_posts( ) ) {
+			$promoted_query->the_post();
+			$result = array(
+				'title' =>   the_title( null, null, false ),
+				'url'   =>   get_post_meta( get_the_ID(), $url_field , true ),
+				'content' => get_the_content(),
+			
+			);
+			$output[] = $result;
+		}
+		
+		wp_reset_query();
+		return $output;
+	}
 }
