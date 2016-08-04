@@ -193,7 +193,7 @@ class BcOssClientView {
 		<div class="input-group input-group-lg">';
 		if ( $filters ) {
 			foreach( $filters as $filter ) {
-				$output .= '<input type="hidden" class="form-control" name="filter[]" value="' . htmlentities( stripslashes( $filter ) ) . '">';
+				$output .= '<input type="hidden" class="form-control" name="' . $this->model->config( 'filter_peram' ) . '[]" value="' . htmlentities( stripslashes( $filter ) ) . '">';
 			}
 		}
 		$output .= '<input type="text" class="form-control" name="txtQuery" id="txtQuery" value="' . htmlentities( stripslashes( $query ) ) . '">
