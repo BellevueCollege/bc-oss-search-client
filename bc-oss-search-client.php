@@ -4,7 +4,7 @@ Plugin Name: Open Search Server Search Client
 Plugin URI: https://github.com/BellevueCollege/
 Description: Open Search Server search box for BC Website
 Author: Bellevue College Integration Team
-Version: 0.0.0.3
+Version: 1
 Author URI: http://www.bellevuecollege.edu
 GitHub Plugin URI: BellevueCollege/bc-oss-search-client
 Text Domain: bcossclient
