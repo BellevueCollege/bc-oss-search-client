@@ -51,17 +51,17 @@
     },
     {
         "name": "opensearchserver/opensearchserver",
-        "version": "3.0.18",
-        "version_normalized": "3.0.18.0",
+        "version": "3.0.19",
+        "version_normalized": "3.0.19.0",
         "source": {
             "type": "git",
             "url": "https://github.com/jaeksoft/opensearchserver-php-client.git",
-            "reference": "9bd45b397201cf68ee6b52cb0ee33470e05a6d10"
+            "reference": "dc5d1710d9cbb7cdb24395221b20e603a863c217"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/jaeksoft/opensearchserver-php-client/zipball/9bd45b397201cf68ee6b52cb0ee33470e05a6d10",
-            "reference": "9bd45b397201cf68ee6b52cb0ee33470e05a6d10",
+            "url": "https://api.github.com/repos/jaeksoft/opensearchserver-php-client/zipball/dc5d1710d9cbb7cdb24395221b20e603a863c217",
+            "reference": "dc5d1710d9cbb7cdb24395221b20e603a863c217",
             "shasum": ""
         },
         "require": {
@@ -71,7 +71,7 @@
         "require-dev": {
             "phpunit/phpunit": "4.1.*"
         },
-        "time": "2015-04-21 14:55:08",
+        "time": "2016-07-22 12:11:04",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -81,7 +81,7 @@
         },
         "notification-url": "https://packagist.org/downloads/",
         "license": [
-            "GPL-3.0"
+            "Apache-2.0"
         ],
         "description": "PHP library for OpenSearchServer: professionnal search engine, crawlers (web, file, database), REST APIs, .... This library uses OpenSearchServer's V2 API.",
         "homepage": "http://www.opensearchserver.com/",
