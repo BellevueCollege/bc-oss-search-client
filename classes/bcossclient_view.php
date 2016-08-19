@@ -192,9 +192,16 @@ class BcOssClientView {
 		<label class="sr-only" for="txtQuery">Search Bellevue College:</label>
 		<div class="input-group input-group-lg">';
 		if ( $filters ) {
-			foreach( $filters as $filter ) {
-				$output .= '<input type="hidden" class="form-control" name="' . $this->model->config( 'filter_peram' ) . '[]" value="' . htmlentities( stripslashes( $filter ) ) . '">';
+			// Check if $filters is an array
+			if ( is_array( $filters ) ) {
+				foreach( $filters as $filter ) {
+					$output .= '<input type="hidden" class="form-control" name="' . $this->model->config( 'filter_peram' ) . '[]" value="' . htmlentities( stripslashes( $filter ) ) . '">';
+				}
+			} else {
+				// If not an array, output single
+				$output .= '<input type="hidden" class="form-control" name="' . $this->model->config( 'filter_peram' ) . '[]" value="' . htmlentities( stripslashes( $filters ) ) . '">';
 			}
+
 		}
 		$output .= '<input type="text" class="form-control" name="txtQuery" id="txtQuery" value="' . htmlentities( stripslashes( $query ) ) . '">
 		<span class="input-group-btn">
@@ -225,9 +232,14 @@ class BcOssClientView {
 		// Check for filters
 		if ( $this->model->filters ) {
 			$output .= '<p>Results filtered to';
-			foreach( $this->model->filters as $filter ) {
-				$output .= ' <span class="label label-default">'. htmlspecialchars( stripslashes( $filter ) ).'</span> ';
+			if ( is_array( $this->model->filters ) ) {
+				foreach( $this->model->filters as $filter ) {
+					$output .= ' <span class="label label-default">'. htmlspecialchars( stripslashes( $filter ) ).'</span> ';
+				}
+			} else {
+				$output .= ' <span class="label label-default">'. htmlspecialchars( stripslashes( $this->model->filters ) ).'</span> ';
 			}
+
 			$output .= '</p>';
 		}
 

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "feb2db66562a8c87848c46b35012a572",
+    "hash": "5b859e9937c7f269e97976925aad4747",
     "content-hash": "499e6989ca10f213e45c7029e8244948",
     "packages": [
         {
@@ -57,16 +57,16 @@
         },
         {
             "name": "opensearchserver/opensearchserver",
-            "version": "3.0.18",
+            "version": "3.0.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jaeksoft/opensearchserver-php-client.git",
-                "reference": "9bd45b397201cf68ee6b52cb0ee33470e05a6d10"
+                "reference": "dc5d1710d9cbb7cdb24395221b20e603a863c217"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jaeksoft/opensearchserver-php-client/zipball/9bd45b397201cf68ee6b52cb0ee33470e05a6d10",
-                "reference": "9bd45b397201cf68ee6b52cb0ee33470e05a6d10",
+                "url": "https://api.github.com/repos/jaeksoft/opensearchserver-php-client/zipball/dc5d1710d9cbb7cdb24395221b20e603a863c217",
+                "reference": "dc5d1710d9cbb7cdb24395221b20e603a863c217",
                 "shasum": ""
             },
             "require": {
@@ -84,7 +84,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "GPL-3.0"
+                "Apache-2.0"
             ],
             "description": "PHP library for OpenSearchServer: professionnal search engine, crawlers (web, file, database), REST APIs, .... This library uses OpenSearchServer's V2 API.",
             "homepage": "http://www.opensearchserver.com/",
@@ -99,7 +99,7 @@
                 "search engine",
                 "web crawler"
             ],
-            "time": "2015-04-21 14:55:08"
+            "time": "2016-07-22 12:11:04"
         }
     ],
     "packages-dev": [],

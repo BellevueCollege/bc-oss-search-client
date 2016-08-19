@@ -4,7 +4,7 @@ Plugin Name: Open Search Server Search Client
 Plugin URI: https://github.com/BellevueCollege/
 Description: Open Search Server search box for BC Website
 Author: Bellevue College Integration Team
-Version: 1
+Version: 1.0.1
 Author URI: http://www.bellevuecollege.edu
 GitHub Plugin URI: BellevueCollege/bc-oss-search-client
 Text Domain: bcossclient
@@ -50,3 +50,15 @@ function bcossclient_shortcode( $sc_config ) {
 	return $view->output();
 }
 add_shortcode( 'bc-oss-search', 'bcossclient_shortcode' );
+
+/*
+ * Disable the reserved query var 'search'
+ *
+ * WordPress reserves the query var 'search' by default
+ * https://codex.wordpress.org/WordPress_Query_Vars
+ */
+function disable_query_var_search($vars){
+	unset($vars['search']);
+	return $vars;
+}
+add_filter('request', 'disable_query_var_search');
